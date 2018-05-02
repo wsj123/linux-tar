@@ -1,37 +1,68 @@
-## Welcome to GitHub Pages
+## linux常用压缩命令2
 
-You can use the [editor on GitHub](https://github.com/wsj123/linux-tar/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+先打包在压缩，可以压缩多个目录（多个目录之间以空格分隔） -c 压缩， -x 解压缩, -t 查看压缩文件
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### 常用压缩格式
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+.tar.gz  .tar.bz2
 
-```markdown
-Syntax highlighted code block
+先打包在压缩，可以压缩多个目录
+tar -cvf 打包文件 源文件  
 
-# Header 1
-## Header 2
-### Header 3
+tar -cvf jp.tar jp
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+ls
+gzip jp.tar
 
-**Bold** and _Italic_ and `Code` text
+gzip -d jp.tar.gz
 
-[Link](url) and ![Image](src)
+bzip2 jp.tar
+
+
+bzip2 -d jp.tar.bz2
+
+rm -rf jp
+
+tar -xvf  解压缩
+
+tar -xvf jp.tar
+
+
+tar -zcvf 压缩包名.tar.gz 源文件
+-z 压缩为.tar.gz
+
+tar -zxvf 压缩包名.tar.gz
+
+-x 解压缩.tar.gz格式
+
+
+tar -jcvf 压缩包名.tar.bz2 源文件
+
+-z: 压缩为.tar.bz2格式
+
+tar -jxvf 压缩包名.tar.bz2
+-x 解压缩.tar.bz2格式
+
+
+tar -zcvf jp.tar.gz jp
+
+rm -rf jp
+
+tar -zxvf jp.tar.gz
+
+tar -jcvf jp.tar.bz2 jp
+
+tar -jxvf jp.tar.bz2 -C /tmp/ 指定解压缩位置
+
+tar  -zcvf test.tar.gz jp abc
+
+tar -zcvf /tmp/test.tar.gz jp abc
+
+tar -zxvf test.tar.gz
+
+tar -ztvf test.tar.gz 查看压缩目录
+-t 查看压缩目录
+
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wsj123/linux-tar/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
